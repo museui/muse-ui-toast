@@ -1,6 +1,7 @@
 node_modules
 demo
 coverage
+test
 rollup.config.js
 yarn.lock
 src

@@ -3,6 +3,9 @@
   "version": "0.1.0",
   "description": "muse-ui toast plugin",
   "main": "dist/muse-ui-toast.common.js",
+  "module": "dist/muse-ui-toast.esm.js",
+  "unpkg": "dist/muse-ui-toast.js",
+  "jsdelivr": "dist/muse-ui-toast.js",
   "scripts": {
     "test": "NODE_ENV=test jest -i",
     "dev": "parcel demo/index.html",

@@ -66,6 +66,9 @@ const Message = Vue.extend({
           h('mu-icon', {
             props: {
               value: config.closeIcon
+            },
+            style: {
+              'margin-right': 0
             }
           }),
           (id) => this.close(id),

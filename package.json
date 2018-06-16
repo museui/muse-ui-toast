@@ -5,7 +5,8 @@
   "main": "dist/muse-ui-toast.common.js",
   "scripts": {
     "test": "NODE_ENV=test jest -i",
-    "dev": "parcel demo/index.html"
+    "dev": "parcel demo/index.html",
+    "build": "rm -rf dist && rollup --config rollup.config.js"
   },
   "repository": {
     "type": "git",
@@ -30,6 +31,7 @@
     "babel-jest": "^23.0.1",
     "babel-plugin-transform-runtime": "^6.23.0",
     "babel-preset-env": "^1.7.0",
+    "babel-preset-es2015-rollup": "^3.0.0",
     "babel-preset-stage-2": "^6.24.1",
     "eslint": "^4.19.1",
     "eslint-config-vue": "^2.0.2",

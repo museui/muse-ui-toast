@@ -1,0 +1,24 @@
+{
+  "name": "muse-ui-toast",
+  "version": "0.1.0",
+  "description": "muse-ui toast plugin",
+  "main": "dist/muse-ui-toast.common.js",
+  "scripts": {
+    "test": "NODE_ENV=test jest -i"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/museui/muse-ui-toast.git"
+  },
+  "keywords": [
+    "muse-ui",
+    "vue",
+    "toast"
+  ],
+  "author": "myron.liu",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/museui/muse-ui-toast/issues"
+  },
+  "homepage": "https://github.com/museui/muse-ui-toast#readme"
+}

@@ -20,6 +20,13 @@ npm install muse-ui-toast -S
 yarn add muse-ui-toast
 ```
 
+## CDN
+
+```html
+<link rel="stylesheet" href="https://unpkg.com/muse-ui-loading/dist/muse-ui-toast.all.css"/>
+<script src="https://unpkg.com/muse-ui-toast/dist/muse-ui-toast.js"></script>
+```
+
 ## Usage
 
 ```javascript
@@ -117,6 +124,6 @@ close message
 
 ## Licence
 
-muse-ui is open source and released under the MIT Licence.
+muse-ui-toast is open source and released under the MIT Licence.
 
 Copyright (c) 2018 myron

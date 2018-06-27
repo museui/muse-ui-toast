@@ -6,6 +6,12 @@
   "module": "dist/muse-ui-toast.esm.js",
   "unpkg": "dist/muse-ui-toast.js",
   "jsdelivr": "dist/muse-ui-toast.js",
+  "typings": "types/index.d.ts",
+  "files": [
+    "dist",
+    "src",
+    "types"
+  ],
   "scripts": {
     "test": "NODE_ENV=test jest -i",
     "dev": "parcel demo/index.html",

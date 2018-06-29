@@ -7,17 +7,13 @@ import packageJson from './package.json';
 
 const name = packageJson.name;
 const banner = `/* ${name} myron.liu version ${packageJson.version} */`;
-const env = process.env.NODE_ENV;
+
 const plugins = [
-  postcss({
-    extensions: ['.less'],
-    extract: `dist/${name}${env === 'production' ? '.all' : ''}.css`
-  }),
   resolve({ jsnext: true, main: true, browser: true }),
   commonjs(),
   babel({
     babelrc: false,
-    include: 'src/**',
+    include: ['src/**', 'node_modules/muse-ui/src/**'],
     runtimeHelpers: false,
     presets: [
       [
@@ -31,26 +27,31 @@ const plugins = [
     ]
   })
 ];
-const external = ['vue'];
-const output = [];
-let input = 'src/index.js';
 
-switch (env) {
-  case 'module':
-    output.push({
-      banner,
-      file: `dist/${name}.common.js`,
-      format: 'cjs'
-    });
-    output.push({
-      banner,
-      file: `dist/${name}.esm.js`,
-      format: 'es'
-    });
-    break;
-  case 'production':
-    input = 'src/umd.js';
-    output.push({
+export default [
+  {
+    input: 'src/index.js',
+    output: [
+      {
+        banner,
+        file: `dist/${name}.common.js`,
+        format: 'cjs'
+      },
+      {
+        banner,
+        file: `dist/${name}.esm.js`,
+        format: 'es'
+      }
+    ],
+    plugins: [
+      postcss({ extensions: ['.less'], extract: `dist/${name}.css` }),
+      ...plugins
+    ],
+    external: ['vue']
+  },
+  {
+    input: 'src/umd.js',
+    output: {
       banner,
       file: `dist/${name}.js`,
       format: 'umd',
@@ -58,14 +59,13 @@ switch (env) {
         vue: 'Vue'
       },
       name: 'MuseUIToast'
-    });
-    plugins.push(uglify());
-    break;
-}
+    },
+    plugins: [
+      postcss({ extensions: ['.less'], extract: `dist/${name}.all.css` }),
+      ...plugins,
+      uglify()
+    ],
+    external: ['vue']
+  }
+];
 
-export default {
-  input,
-  output,
-  plugins,
-  external
-};
